@@ -58,5 +58,5 @@ public class BinaryHeap<Key extends Comparable<Key>> extends MaxPQ<Key> {
         pq[N + 1] = null;//remove last one(was first one)
         return max;
     }
-
+//1
 }
