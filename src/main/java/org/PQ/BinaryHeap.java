@@ -4,7 +4,7 @@ package org.PQ;
 Based on complete binary tree,level order traversal
  */
 public class BinaryHeap<Key extends Comparable<Key>> extends MaxPQ<Key> {
-    private Key[] pq;
+    private Key[] pq;//Immutable keys
     private int N;
 
     private boolean less(int i, int j) {
