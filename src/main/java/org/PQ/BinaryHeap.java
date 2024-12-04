@@ -1,7 +1,7 @@
 package org.PQ;
 
 /*
-Based on complete binary tree,level order traversal
+Based on complete binary tree,level order traversal of tree is sorted order
  */
 public class BinaryHeap<Key extends Comparable<Key>> extends MaxPQ<Key> {
     private Key[] pq;//Immutable keys
