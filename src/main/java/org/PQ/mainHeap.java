@@ -59,6 +59,7 @@ class Solution {
             while(cIndex<=N){
                 if(less(n,cIndex)){ //violate max heap order
                     if(less(cIndex,cIndex+1)) cIndex=cIndex+1;
+                    if(val[cIndex]==-1) break; //loiter
                     exch(cIndex,n);
                 }else break;
                 n = cIndex;
@@ -66,9 +67,11 @@ class Solution {
             }
         }
         int delMax(){
-            int res = val[--N];
-            exch(1,N);
+            int res = val[1];
+            exch(1,N-1);//N points to out of bound when heap is full
+            val[N-1] = -1;//loiter
             sink(1);
+            N--;
             //val[N] = null;
             return res;
         }
