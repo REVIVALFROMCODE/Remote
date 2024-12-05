@@ -45,7 +45,8 @@ class Solution {
         }
         void push(int x){
             if(N==val.length) {
-                delMax();
+                if(x<val[1]) delMax();//?
+                else return;//?
             }
 
             val[N] = x;
@@ -56,8 +57,8 @@ class Solution {
         }
         void sink(int n){
             int cIndex = 2*n;
-            while(cIndex<=N){
-                if(less(n,cIndex)){ //violate max heap order
+            while(cIndex+1<N){//?
+                if(less(n,cIndex) || less(n,cIndex+1)){ //violate max heap order //?
                     if(less(cIndex,cIndex+1)) cIndex=cIndex+1;
                     if(val[cIndex]==-1) break; //loiter
                     exch(cIndex,n);
