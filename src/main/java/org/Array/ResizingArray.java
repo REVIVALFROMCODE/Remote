@@ -1,12 +1,11 @@
 package org.Array;
 
 public class ResizingArray {
-    String[] s;
-    int N;
+    private String[] s;
+    private int N = 0;
 
     public ResizingArray() {
         s = new String[1];
-        N = s.length;
     }
 
     private void resize(int capacity) {
@@ -15,16 +14,15 @@ public class ResizingArray {
             copy[i] = s[i];
         }
         s = copy;
-        N = s.length;
     }
 
     public void push(String item) {
-        if (N == s.length) resize(2 * N);
+        if (N == s.length) resize(2 * s.length);
         s[N++] = item;
     }
 
     public String pop() {
-        if (N == s.length / 4) resize(N / 2);
+        if (N>0 && N == s.length / 4) resize(s.length / 2);
         String item = s[--N];
         s[N] = null;
         return item;
